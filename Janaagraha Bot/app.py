@@ -1,6 +1,8 @@
 import os, sys
 from flask import Flask, request
 from pymessenger import Bot
+from utils import wit_response
+
 
 PAGE_ACCESS_TOKEN = 'EAARlZAihBuW8BAIdnMZA7o06YZAOmVtRiT8xpfRN4wgyapflpLenYKByan4LQH4Koze9vpQAYiXlHZBpbSnMIEZBNRXqY5cv7hpc9SZCpkwBXI2dTxFu8atrzBFbkwZA2w9nX7ck0MJPnRZAuQ30d6Hnvj0Wxs0Wc0v3L7uAba67TZCyEFEnyrdZCZC'
 bot = Bot(PAGE_ACCESS_TOKEN)
@@ -34,9 +36,26 @@ def webhook():
                         messaging_text = messaging_event['message']['text']
                     else:
                         messaging_text='no text'
-                    if flag == 0:
-                        response = messaging_text
-                        bot.send_text_message(sender_id,response)
+                    
+                    
+
+                    if flag==0:
+                        entity,value = wit_response(messaging_text)
+                        hello,dump = wit_response(messaging_text)
+                        print(entity)
+                        print("hello")
+
+                        if hello == "hello":
+                            response = "Hey, how may i help you!"
+                        elif entity == "complain:complain" and messaging_text!="Try asking, I want to register.":
+                            response = "please type your full name."
+                            flag =1
+                            print(flag)
+                            print("hello")
+                        if response == None:
+                            response = "Try asking, I want to register."
+
+                    bot.send_text_message(sender_id,response)
     return "OK", 200
 
 def log(message):
