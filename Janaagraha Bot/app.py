@@ -21,7 +21,6 @@ class User(db.Model):
     SENDER_ID = db.Column(db.String(20))
 
 
-
 flag = 0
 name=email=contact=city=state=description=picture1=''
 @app.route('/', methods = ['GET'])
