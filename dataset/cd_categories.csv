@@ -1,0 +1,194 @@
+id,title,parent_id
+1,Certificates,0
+2,"Crime and Safety",0
+4,"Electricity and Power Supply",0
+5,"Fire Safety",0
+6,"Garbage and Unsanitary Practices",0
+7,Lakes,0
+9,Others,0
+11,Pollution,0
+15,"Mobility - Roads, Footpaths and Infrastructure",0
+18,"Storm Water Drains",0
+19,"Animal Husbandry",0
+21,"Traffic and Road Safety",0
+22,"Parks & Recreation",0
+23,"Water Supply and Services",0
+168,"Public Transport - BMTC",0
+172,"Public Transport - KSRTC",0
+313,Railways,0
+382,"Community Infrastructure and Services",0
+454,"Public Toilets",0
+464,Playgrounds,0
+470,Streetlights,0
+472,"Sewerage Systems",0
+473,"Trees and Saplings",0
+24,"Birth Or Death Certificate",1
+50,"Khata Certificate",1
+148,"Property Tax",1
+149,"Other Certificates",1
+27,"Eve Teasing/Public Nuisance",2
+424,"Increase Number Of Beat Patrols",2
+425,"Two Wheeler Wheeling",2
+426,"Shops/Establishments Being Open in Late Hours",2
+427,"Playing Of Loudspeakers Without Permisson",2
+33,"Regular Supply Of Electricity",4
+369,"Relocation Of Transformers/Electric Poles",4
+370,"Repair Of Transformers/Electric Poles",4
+428,"Installation Of New transformers/Electric Poles",4
+34,"Fire Pump is on OFF Mode",5
+90,"Fire Exit Blocked ",5
+91,"Combustible Garbage in Electrical Shaft",5
+92,"Sprinkler or Smoke Alarm Blocked",5
+93,"Combustible Material in Electrical Room",5
+94,"Fire Extinguisher Expired or Blocked",5
+312,"Fire safety - Others",5
+78,"Fogging (Mosquito Menace) Or Pest Control",6
+155,"Clearance Of Garbage Dump Or Black Spot",6
+339,"Build Garbage/Waste Composting Units",6
+340,"Build Dry Waste Collection Centre",6
+432,"Maintenance Of Existing Composting Units",6
+433,"Clearing Of Roadside Dustbin",6
+442,"Collection Of Door-to-door Garbage",6
+443,"Implementation Of Waste Segregation/Garbage",6
+444,"Garbage Dumping In Vacant Lot/Land",6
+445,"Stop/Prevent Burning Of Garbage",6
+446,"Maintenance Of Dry Waste Collection Centre",6
+447,"Regular Sweeping Of Streets",6
+159,"Maintenance Of Lake Surrounding",7
+160,"Removal of Encroachment In Lakes",7
+341,"Desilting/Remove Blockage In Lakes",7
+412,"Plant Saplings/Trees in Lake Surrounding",7
+437,"Sidewalls And Fencing For Lake",7
+42,Others,9
+44,"Air Pollution",11
+45,"Land Pollution",11
+46,"Noise Pollution",11
+47,"Water Pollution",11
+167,"Pollution - Others",11
+32,"Removal Of Illegal Posters And Hoardings",15
+56,"Flooding/Waterlogging Of Roads And Footpaths",15
+58,"Management Of Hawkers and Vendors",15
+61,"Construction of new footpaths",15
+66,"Fixing/Reparing Potholes",15
+67,"Tarring Or Asphalting Of Existing Road",15
+343,"Construction Of Roadside Drains",15
+344,"Desilting Existing Roadside Drains",15
+347,"Need Lane Markings/Street Name/Road Signages",15
+349,"Need Covering Slabs For Roadside Drains",15
+352,"Tarring Or Asphalting Of Mud/Kutcha/Unpaved Road",15
+353,"Beautification/Maintenance Of Medians Or Circles",15
+354,"Construction Of Skywalk/Flyover/Underpass",15
+368,"Installation Of Surveillance Cameras",15
+413,"Provision For Parking",15
+422,"Repair Of Existing Footpaths",15
+449,"Maintenance Of Surveillance Cameras",15
+450,"Dangling Or Hanging Of OFCs/Cables/Wires",15
+451,"Need Roadside Rainwater Harvesting System",15
+452,"Repair Of Roadside Rainwater Harvesting System",15
+453,"Construction Of Culverts",15
+474,"Removal Of Roadside Debris (Construction Material)",15
+73,"Maintenance And Repair Of Storm Water Drains",18
+365,"Sidewall And Fencing For Storm Water Drains",18
+415,"Desilting/Remove Blockage of Storm Water Drains",18
+75,"Controlling Of Stray Cattle Or Maintenance Of Cattle Pound",19
+76,"Removal Of Dead Animals",19
+77,"Stray Dog Sterilisation/Animal Birth Control (ABC)",19
+434,"Rabies Vaccination",19
+435,"Maintenance Of City Meat Production And Processing Centre",19
+436,"Controlling Of Stray Pigs",19
+82,"Autorickshaws Meter Issues",21
+84,"Traffic Jams/Congestion Or Bottlenecks",21
+188,"No Parking",21
+189,"One Way - No Entry",21
+190,"Parking On Footpath",21
+191,"Riding On Footpath",21
+192,"Riding Without A Helmet",21
+193,"Defective number plate",21
+194,"Not wearing seat belt",21
+195,"Stopped on zebra cross-Near TRF light",21
+196,"Taking a U-turn where U-turn is prohibited",21
+197,"Triple riding",21
+198,"Using mobilephone",21
+199,"Violating lane discipline",21
+200,"Wrong parking",21
+201,"Using black film-other materials",21
+374,"Installation Of Traffic or Pedestrain Lights",21
+375,"Repair of  mast light at a busy road (main road) junction",21
+377,"Maintenance/Repair Of Traffic or Pedestrain Lights",21
+419,"Repair of pedestrian lights",21
+429,"Installation Of Traffic Surveillance Camera",21
+430,"Installation Of Traffic Sign Boards",21
+85,"Maintenance Of existing Parks",22
+358,"Construction Of New Parks",22
+465,"Plant New Tree Saplings In Parks",22
+466,"Construction Of New Public Toilet In Parks",22
+467,"Maintenance Of Existing Public Toilet In Parks",22
+468,"Installation Of Lights In Parks",22
+469,"Maintenance Of Lights In Parks",22
+88,"Stop Water Leakage",23
+182,"Regular Water Supply",23
+378,"Provision for a New Water Pipeline",23
+420,"Maintenance Of Existing Water Pipeline",23
+431,"Maintenance Of Existing Water Tank",23
+440,"Installation Of Drinking Water ATMs",23
+60,"Maintenance/Repair Of Bus Shelter",168
+64,"Construction Of New Bus Shelter",168
+169,"Provide New Bus Routes",168
+170,"Issue With Bus Driver Or Conductor",168
+372,"Increase Frequency Of Bus Services",168
+173,"KSRTC - Driver or Conductor",172
+174,"KSRTC - Need new Bus Route",172
+175,"KSRTC - Others",172
+314,"Maintenance of Railways",313
+3,"Maintenance/Renovation Of Heritage Sites",382
+53,"Stop Unauthorised Construction",382
+162,"Government Land/Property Encroachment",382
+359,"Construction Of Stadiums",382
+360,"Construction Of Swimming Pools",382
+362,"Maintenance Of Existing Stadiums",382
+363,"Maintenance Of Existing Swimming Pools",382
+385,"Construction Of Shopping And Commercial Complexes",382
+386,"Construction Of Community Halls",382
+387,"Construction Of Council Buildings",382
+388,"Construction Of Crematoriums And Burial ground",382
+389,"Maintenance Of Existing Dhobi Ghats",382
+390,"Construction Of Educational Institutions And Libraries",382
+391,"Construction Of Health Care Buildings",382
+393,"Construction Of Markets",382
+394,"Fencing Of BBMP/Government Land",382
+395,"Construction Of Residential Quarters",382
+396,"Construction of Ward And Zonal Offices",382
+397,"Maintenance of  Primary/Community health centre",382
+399,"Maintenance Of Shopping And Commercial Complexes",382
+400,"Maintenance Of Community Halls",382
+401,"Maintenance Of Existing Council Buildings",382
+402,"Maintenance Of Crematoriums And Burial ground",382
+404,"Maintenance Of Educational Institutions And Libraries",382
+407,"Maintenance Of Existing Markets",382
+410,"Maintenance Of Existing Ward & Zonal Offices",382
+156,"Construction Of New Public Toilet",454
+157,"Cleaning Of Public Toilet",454
+460,"Require Electricity/Lighting In Public Toilet",454
+461,"Require Water Supply In Public Toilet",454
+462,"Removal Of Blockage In Public Toilet",454
+463,"Maintenance/Repair Of Toilet Fixtures",454
+357,"Construction Of New Playground",464
+361,"Maintenance Of Existing Playground",464
+455,"Plant New Tree Saplings In Playground",464
+456,"Construction Of New Public Toilet In Playground",464
+457,"Maintenance Of Existing Public Toilet In Playground",464
+458,"Installation Of Lights In Playground",464
+459,"Maintenance Of Lights In Playground",464
+62,"Maintenance/Repair Of Streetlights",470
+165,"Installation Of New Streetlights",470
+471,"Installation/Maintenance Of Streetlight Timer",470
+63,"Maintenance And Repair Of Manholes",472
+72,"Maintenance And Repair Of Sewage Lines",472
+311,"Removal Of Sewer Pipe Blockages and Overflows",472
+380,"Construction of Sewage Lines",472
+381,"Maintenance Of Sewage Treatment Plant",472
+421,"Construction Of Sewage Treatment Plant",472
+87,"Prevent Unauthorized Tree Cutting",473
+180,"Defacement Of Trees",473
+355,"Maintenance Of Trees/Saplings",473
+356,"Plant Saplings/Trees in your locality",473
