@@ -18,13 +18,12 @@ class User(db.Model):
     state = db.Column(db.String(50))
     description = db.Column(db.String(250))
     picture_1=db.Column(db.String(250))
-    picture_2=db.Column(db.String(250))
     SENDER_ID = db.Column(db.String(20))
 
 
 
 flag = 0
-name=email=contact=city=state=description=picture1=picture2=''
+name=email=contact=city=state=description=picture1=''
 @app.route('/', methods = ['GET'])
 def verify():
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -36,7 +35,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    global flag,name,email,city,state,contact
+    global flag,name,email,city,state,contact,description,picture1
     response=None
     data=request.get_json()
     log(data)
@@ -50,10 +49,19 @@ def webhook():
                         messaging_text = messaging_event['message']['text']
                     else:
                         messaging_text='no text'
-                    
-                    
+                    if 'attachments' in messaging_event['message']:
+                        image_1=messaging_event['message']['attachments'][0]['payload']['url']
+                        messaging_text = image_1
+
+                    if flag == 7:
+                        if "photos" not in messaging_text:
+                            picture1=messaging_text
+                            print(picture1)
+                            data_stored(name,email,contact,city,state,description,picture1,sender_id)
+                            response = "you have been registered. Thanks."
+                            flag=8
                     if flag == 6:
-                        if "please share description of the incident" != messaging_text:
+                        if "description" not in messaging_text:
                             description = messaging_text
                             #data_stored(name,email,contact,city,state,sender_id)
                             response = "please share on-field photos"
@@ -127,8 +135,8 @@ def log(message):
     print(message)
     sys.stdout.flush()
 
-def data_stored(name,email,contact,city,state,sender_id):
-    user = User(name=name,email=email,contact=contact,city=city,state=state,SENDER_ID=sender_id)
+def data_stored(name,email,contact,city,state,description,picture1,sender_id):
+    user = User(name=name,email=email,contact=contact,city=city,state=state,description=description,picture_1=picture1,SENDER_ID=sender_id)
     db.session.add(user)
     db.session.commit()
 
