@@ -11,3 +11,7 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
     return "Hello world", 200
+
+
+if __name__ == "__main__":
+    app.run(debug = True, port = 80)
