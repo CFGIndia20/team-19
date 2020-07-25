@@ -2,15 +2,26 @@ import os, sys, string, re
 from flask import Flask, request
 from pymessenger import Bot
 from utils import wit_response
-
-
+from flask_sqlalchemy import SQLAlchemy
+app = Flask(__name__)
 PAGE_ACCESS_TOKEN = 'EAARlZAihBuW8BAIdnMZA7o06YZAOmVtRiT8xpfRN4wgyapflpLenYKByan4LQH4Koze9vpQAYiXlHZBpbSnMIEZBNRXqY5cv7hpc9SZCpkwBXI2dTxFu8atrzBFbkwZA2w9nX7ck0MJPnRZAuQ30d6Hnvj0Wxs0Wc0v3L7uAba67TZCyEFEnyrdZCZC'
 bot = Bot(PAGE_ACCESS_TOKEN)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+db = SQLAlchemy(app)
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    email = db.Column(db.String(50))
+    contact = db.Column(db.String(10))
+    city = db.Column(db.String(50))
+    state = db.Column(db.String(50))
+    SENDER_ID = db.Column(db.String(20))
 
-app = Flask(__name__)
+
 
 flag = 0
-name=email=contact=city=state=picture=''
+name=email=contact=city=state=''
 @app.route('/', methods = ['GET'])
 def verify():
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -22,7 +33,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    global flag
+    global flag,name,email,city,state,contact
     response=None
     data=request.get_json()
     log(data)
@@ -37,13 +48,39 @@ def webhook():
                     else:
                         messaging_text='no text'
                     
+                    if flag == 5:
+                        if "state" not in messaging_text  and "valid" not in messaging_text:
+                            if all(c in string.ascii_letters + ' ' for c in messaging_text):
+                                state = messaging_text
+                                data_stored(name,email,contact,city,state,sender_id)
+                                response = "you are successfully registered!"
+                                flag = 6
+                            else:
+                                response = "please enter a valid city name."
+
+                    if flag == 4:
+                        if "city" not in messaging_text  and "valid" not in messaging_text:
+                            if all(c in string.ascii_letters + ' ' for c in messaging_text):
+                                city = messaging_text
+                                response = "please enter name of your state."
+                                flag = 5
+                            else:
+                                response = "please enter a valid city name."
                     
+                    if flag == 3:
+                        if "contact" not in messaging_text and "valid" not in messaging_text:
+                            if(re.match(r'[789]\d{9}$', messaging_text) != None):
+                                contact = messaging_text
+                                response = "please enter your city name."
+                                flag=4
+                            else:
+                                response = "please enter a valid contact number."
 
                     if flag == 2:
                         if "E-mail" not in messaging_text and "valid" not in messaging_text:
                             if(re.match("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", messaging_text) != None):
                                 email = messaging_text
-                                response = "please enter your branch.(for example, CSE/IT/EXTC)"
+                                response = "please enter your contact number."
                                 flag=3
                             else:
                                 response = "please enter a valid email address"
@@ -67,7 +104,7 @@ def webhook():
                             response = "Hey, how may i help you!"
                         elif entity == "complain:complain" and messaging_text!="Try asking, I want to register.":
                             response = "please type your full name."
-                            flag =1
+                            flag=1
                             print(flag)
                             print("hello")
                         if response == None:
@@ -79,6 +116,11 @@ def webhook():
 def log(message):
     print(message)
     sys.stdout.flush()
+
+def data_stored(name,email,contact,city,state,sender_id):
+    user = User(name=name,email=email,contact=contact,city=city,state=state,SENDER_ID=sender_id)
+    db.session.add(user)
+    db.session.commit()
 
 if __name__ == "__main__":
     app.run(debug = True, port = 80)
