@@ -16,12 +16,15 @@ class User(db.Model):
     contact = db.Column(db.String(10))
     city = db.Column(db.String(50))
     state = db.Column(db.String(50))
+    description = db.Column(db.String(250))
+    picture_1=db.Column(db.String(250))
+    picture_2=db.Column(db.String(250))
     SENDER_ID = db.Column(db.String(20))
 
 
 
 flag = 0
-name=email=contact=city=state=''
+name=email=contact=city=state=description=picture1=picture2=''
 @app.route('/', methods = ['GET'])
 def verify():
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -48,15 +51,22 @@ def webhook():
                     else:
                         messaging_text='no text'
                     
+                    
+                    if flag == 6:
+                        if "please share description of the incident" != messaging_text:
+                            description = messaging_text
+                            #data_stored(name,email,contact,city,state,sender_id)
+                            response = "please share on-field photos"
+                            flag = 7
+                    
                     if flag == 5:
                         if "state" not in messaging_text  and "valid" not in messaging_text:
                             if all(c in string.ascii_letters + ' ' for c in messaging_text):
                                 state = messaging_text
-                                data_stored(name,email,contact,city,state,sender_id)
-                                response = "you are successfully registered!"
+                                response = "please share description of the incident"
                                 flag = 6
                             else:
-                                response = "please enter a valid city name."
+                                response = "please enter a valid state name."
 
                     if flag == 4:
                         if "city" not in messaging_text  and "valid" not in messaging_text:
