@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, string, re
 from flask import Flask, request
 from pymessenger import Bot
 from utils import wit_response
@@ -10,7 +10,7 @@ bot = Bot(PAGE_ACCESS_TOKEN)
 app = Flask(__name__)
 
 flag = 0
-
+name=email=contact=city=state=picture=''
 @app.route('/', methods = ['GET'])
 def verify():
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -39,6 +39,24 @@ def webhook():
                     
                     
 
+                    if flag == 2:
+                        if "E-mail" not in messaging_text and "valid" not in messaging_text:
+                            if(re.match("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", messaging_text) != None):
+                                email = messaging_text
+                                response = "please enter your branch.(for example, CSE/IT/EXTC)"
+                                flag=3
+                            else:
+                                response = "please enter a valid email address"
+                    
+                    if flag==1:
+                        if "name" not in messaging_text and "valid" not in messaging_text and "issue" not in messaging_text:
+                            if all(c in string.ascii_letters + ' ' for c in messaging_text):
+                                name = messaging_text
+                                response = "please enter your E-mail address."
+                                flag = 2
+                            else:
+                                response = "Please enter a valid name." 
+
                     if flag==0:
                         entity,value = wit_response(messaging_text)
                         hello,dump = wit_response(messaging_text)
@@ -53,7 +71,7 @@ def webhook():
                             print(flag)
                             print("hello")
                         if response == None:
-                            response = "Try asking, I want to register."
+                            response = "Try asking, I want to report an issue."
 
                     bot.send_text_message(sender_id,response)
     return "OK", 200
