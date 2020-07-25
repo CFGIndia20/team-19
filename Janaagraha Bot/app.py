@@ -1,5 +1,9 @@
 import os, sys
 from flask import Flask, request
+from pymessenger import Bot
+
+PAGE_ACCESS_TOKEN = 'EAARlZAihBuW8BAIdnMZA7o06YZAOmVtRiT8xpfRN4wgyapflpLenYKByan4LQH4Koze9vpQAYiXlHZBpbSnMIEZBNRXqY5cv7hpc9SZCpkwBXI2dTxFu8atrzBFbkwZA2w9nX7ck0MJPnRZAuQ30d6Hnvj0Wxs0Wc0v3L7uAba67TZCyEFEnyrdZCZC'
+bot = Bot(PAGE_ACCESS_TOKEN)
 
 app = Flask(__name__)
 
@@ -27,6 +31,8 @@ def webhook():
                         messaging_text = messaging_event['message']['text']
                     else:
                         messaging_text='no text'
+                    response = messaging_text
+                    bot.send_text_message(sender_id,response)
     return "OK", 200
 
 def log(message):
