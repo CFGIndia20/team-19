@@ -7,6 +7,8 @@ bot = Bot(PAGE_ACCESS_TOKEN)
 
 app = Flask(__name__)
 
+flag = 0
+
 @app.route('/', methods = ['GET'])
 def verify():
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -18,6 +20,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
+    global flag
     response=None
     data=request.get_json()
     log(data)
@@ -31,8 +34,9 @@ def webhook():
                         messaging_text = messaging_event['message']['text']
                     else:
                         messaging_text='no text'
-                    response = messaging_text
-                    bot.send_text_message(sender_id,response)
+                    if flag == 0:
+                        response = messaging_text
+                        bot.send_text_message(sender_id,response)
     return "OK", 200
 
 def log(message):
