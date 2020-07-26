@@ -28,7 +28,7 @@ Our solution consists of various services working in synergy to ensure that civi
 | [Analytics](https://github.com/CFGIndia20/team-19/tree/master/Analytics/janaagraha_analytics) | React dashboard for top citizens and states |
 | [Analytics_API](https://github.com/CFGIndia20/team-19/tree/master/Analytics_API) | RESTful Spring Boot APIs consumed by the dashboard; checkout the API documentation [here](https://documenter.getpostman.com/view/8926422/T1DqevoA?version=latest#9450a043-981b-4fb0-8b01-d4d9ddd25646) |
 | [demo](https://github.com/CFGIndia20/team-19/tree/master/demo) | A simple Flask app to run the NLP model on a full-text field; Look into the [Demo Videos](https://github.com/CFGIndia20/team-19/tree/master/Demo%20Videos) folder for instructions to run |
-| [Janaagraha Bot](https://github.com/CFGIndia20/team-19/tree/master/Janaagraha%20Bot) | simplistic Flask app that is used by the Messenger Bot |
+| [Janaagraha Bot](https://github.com/CFGIndia20/team-19/tree/master/Janaagraha%20Bot) | simplistic Flask app that is used by the Facebook Messenger's Bot | And the bot is trained on https://wit.ai/ and generated access token keys for the bot using https://developers.facebook.com/apps/ 
 | [Twitter Module](https://github.com/CFGIndia20/team-19/tree/master/TwitterModule) | smart tweet analysis pipeline consuming a stream of tweets to identify and register complaints |
 
 ### Todos
@@ -67,3 +67,5 @@ MIT
    [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+   
+   facebook Messenger Chatbot Link :- https://drive.google.com/file/d/1mvFQfyxiM6oRl33ls91voB-4BhHrNm_u/view
