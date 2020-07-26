@@ -39,6 +39,19 @@ Our solution consists of various services working in synergy to ensure that civi
  
  
  facebook Messenger Chatbot Link :- https://drive.google.com/file/d/1mvFQfyxiM6oRl33ls91voB-4BhHrNm_u/view
+ 
+ 
+ ### Screenshots
+ 
+ ### Bot
+ ![Bot](https://github.com/CFGIndia20/team-19/blob/master/Images/Screenshot%20(51).png)
+ 
+ ### UI
+ ![UI](https://github.com/CFGIndia20/team-19/blob/master/Images/Capture.PNG)
+ ![UI](https://github.com/CFGIndia20/team-19/blob/master/Images/Capture1.PNG)
+ 
+ ### NLP
+ ![NLP](https://github.com/CFGIndia20/team-19/blob/master/Images/nlp.JPG)
 
 License
 ----
